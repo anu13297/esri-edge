@@ -1,4 +1,5 @@
 import {
+  sampleRUM,
   buildBlock,
   loadHeader,
   loadFooter,
@@ -7,12 +8,14 @@ import {
   decorateSections,
   decorateBlocks,
   decorateTemplateAndTheme,
-  waitForFirstImage,
-  loadSection,
-  loadSections,
+  waitForLCP,
+  loadBlocks,
   loadCSS,
-  sampleRUM,
 } from './aem.js';
+
+import { div, iframe, domEl } from './dom-helpers.js';
+
+const LCP_BLOCKS = []; // add your LCP blocks to the list
 
 /**
  * Builds hero block and prepends to main in a new section.
@@ -42,6 +45,63 @@ async function loadFonts() {
 }
 
 /**
+ * Opens an iframe with the video when clicking on anchor tags.
+ * @param {Element} element container element
+ */
+
+function decorateVideoLinks(element) {
+  const anchors = element.querySelectorAll('a');
+  anchors.forEach((a) => {
+    if (a.href.startsWith('https://mediaspace.esri.com/')) {
+      const closeButton = div(
+        {
+          class: 'video-close-button',
+        },
+        domEl('calcite-icon', {
+          icon: 'x',
+          tabindex: '0',
+          scale: 'l',
+          alignment: 'center',
+          'aria-hidden': 'true',
+        }),
+      );
+      const ifr = div(
+        {
+          class: 'video-iframe-box',
+        },
+        div(
+          { class: 'video-iframe-wrapper' },
+          iframe({
+            src: a.href,
+            class: 'video-iframe',
+            scrolling: 'no',
+            sandbox: 'allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation',
+            allow: 'autoplay *; fullscreen *; encrypted-media *',
+          }),
+          closeButton,
+        ),
+      );
+
+      a.addEventListener('click', (event) => {
+        event.preventDefault();
+        document.body.append(ifr);
+        document.body.style.overflow = 'hidden';
+      });
+
+      const closeIframe = (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        ifr.remove();
+        document.body.style.overflow = 'auto';
+      };
+
+      closeButton.addEventListener('click', closeIframe);
+      ifr.addEventListener('click', closeIframe);
+    }
+  });
+}
+
+/**
  * Builds all synthetic blocks in a container element.
  * @param {Element} main The container element
  */
@@ -66,6 +126,7 @@ export function decorateMain(main) {
   buildAutoBlocks(main);
   decorateSections(main);
   decorateBlocks(main);
+  decorateVideoLinks(main);
 }
 
 /**
@@ -79,10 +140,8 @@ async function loadEager(doc) {
   if (main) {
     decorateMain(main);
     document.body.classList.add('appear');
-    await loadSection(main.querySelector('.section'), waitForFirstImage);
+    await waitForLCP(LCP_BLOCKS);
   }
-
-  sampleRUM.enhance();
 
   try {
     /* if desktop (proxy for fast connection) or fonts already loaded, load fonts.css */
@@ -100,7 +159,7 @@ async function loadEager(doc) {
  */
 async function loadLazy(doc) {
   const main = doc.querySelector('main');
-  await loadSections(main);
+  await loadBlocks(main);
 
   const { hash } = window.location;
   const element = hash ? doc.getElementById(hash.substring(1)) : false;
@@ -111,6 +170,10 @@ async function loadLazy(doc) {
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
   loadFonts();
+
+  sampleRUM('lazy');
+  sampleRUM.observe(main.querySelectorAll('div[data-block-name]'));
+  sampleRUM.observe(main.querySelectorAll('picture > img'));
 }
 
 /**
