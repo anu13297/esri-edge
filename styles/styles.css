@@ -218,7 +218,7 @@ button {
 }
 
 /* For calcite buttons and regular buttons */
-a.button[kind=inverse] {
+a.button[kind="inverse"] {
   color: var(--calcite-ui-text-inverse);
   background-color: var(--calcite-ui-inverse);
 }
