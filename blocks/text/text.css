@@ -9,6 +9,21 @@
 
 /* Modifies text code based on sizes */
 
+:where(.size-7, .size-6, .size-5) .esritext-body{
+    --content-spacing: var(--space-2);
+    --content-end-spacing: var(--space-8);
+}
+
+:where(.size-2, .size-1, .size-0) .esritext-body{
+    --content-spacing: var(--space-2);
+    --content-end-spacing: var(--space-5);
+}
+
+:where(.size-4, .size-3) .esritext-body{
+    --content-spacing: var(--space-2);
+    --content-end-spacing: var(--space-6);
+}
+
 .size-8 .esritext-body {
     --category-size: var(--font-0);
     --title-size: var(--font-8);
@@ -39,11 +54,6 @@
     --description-size: var(--font-1);
 }
 
-:where(.size-7, .size-6, .size-5) .esritext-body{
-    --content-spacing: var(--space-2);
-    --content-end-spacing: var(--space-8);
-}
-
 .size-4 .esritext-body {
     --category-size: var(--font-minus-2);
     --title-size: var(--font-4);
@@ -56,11 +66,6 @@
     --title-size: var(--font-3);
     --subtitle-size: var(--font-1);
     --description-size: var(--font-0);
-}
-
-:where(.size-4, .size-3) .esritext-body{
-    --content-spacing: var(--space-2);
-    --content-end-spacing: var(--space-6);
 }
 
 .size-2 .esritext-body {
@@ -82,11 +87,6 @@
     --title-size: var(--font-0);
     --subtitle-size: var(--font-minus-2);
     --description-size: var(--font-minus-1);
-}
-
-:where(.size-2, .size-1, .size-0) .esritext-body{
-    --content-spacing: var(--space-2);
-    --content-end-spacing: var(--space-5);
 }
 
 /* Icon size */
