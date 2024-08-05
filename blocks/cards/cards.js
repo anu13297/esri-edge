@@ -30,7 +30,7 @@ export default function decorate(block) {
 
         [...div.querySelectorAll('.cards-card-body > :not(.card-body-content, a)')].forEach((el) => {
           cardBodyContent.append(el);
-         });
+        });
       }
       /* END of cards simple */
     });
@@ -40,4 +40,3 @@ export default function decorate(block) {
   block.textContent = '';
   block.append(ul);
 }
-
