@@ -15,15 +15,14 @@ export default function decorate(block) {
       /* cards simple */
       if (block.classList.contains('cards') && block.classList.contains('simple')) {
         const anchorEl = div.querySelector('a');
-        if(anchorEl) {
+        if (anchorEl) {
           anchorEl.textContent = '';
           div.append(anchorEl);
           div.querySelector('.button-container').remove();
         }
-        
         const cardBodyContent = document.createElement('div');
         cardBodyContent.className = 'card-body-content';
-        if(anchorEl) {
+        if (anchorEl) {
           anchorEl.append(cardBodyContent);
         } else {
           div.append(cardBodyContent);
