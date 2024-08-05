@@ -10,12 +10,12 @@ export default function decorate(block) {
     while (row.firstElementChild) li.append(row.firstElementChild);
     [...li.children].forEach((div) => {
       if (div.children.length === 1 && div.querySelector('picture')) div.className = 'cards-card-image';
-      else {div.className = 'cards-card-body';}
+      else { div.className = 'cards-card-body'; }
 
       /* cards simple */
       if (block.classList.contains('cards') && block.classList.contains('simple')) {
         const anchorEl = div.querySelector('a');
-        if(anchorEl){
+        if(anchorEl) {
           anchorEl.textContent = '';
           div.append(anchorEl);
           div.querySelector('.button-container').remove();
@@ -23,9 +23,9 @@ export default function decorate(block) {
         
         const cardBodyContent = document.createElement('div');
         cardBodyContent.className = 'card-body-content';
-        if(anchorEl){
+        if(anchorEl) {
           anchorEl.append(cardBodyContent);
-        }else{
+        } else {
           div.append(cardBodyContent);
         }
 
