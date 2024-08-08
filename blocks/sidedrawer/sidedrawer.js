@@ -1,24 +1,23 @@
-import { div, ul, li, button, domEl } from '../../scripts/dom-helpers.js';
+import { div, button, domEl } from '../../scripts/dom-helpers.js';
 
 export default function decorate(block) {
-    block.classList.add('calcite-mode-dark');
-    /* Add class names to div's in markup */
-    const childDiv = block.querySelector('div');
-    if (childDiv) {
-        childDiv.classList.add('sidedrawer-content-wrapper');
-    }
-    const contentDiv = childDiv.querySelector('div');
-    if (contentDiv) {
-        contentDiv.classList.add('sidedrawer-content');
-    }
-    const h3Element = contentDiv.querySelector('h3');
-    if (h3Element) {
-        const buttonEl =  button({ class: 'sidedrawer-button' },
-                                 h3Element.textContent, 
-                                 domEl('calcite-icon', {icon : 'plus', scale: 's', 'aria-hidden': 'true'}));
+  block.classList.add('calcite-mode-dark');
+  /* Add class names to div's in markup */
+  const childDiv = block.querySelector('div');
+  if (childDiv) {
+    childDiv.classList.add('sidedrawer-content-wrapper');
+  }
+  const contentDiv = childDiv.querySelector('div');
+  if (contentDiv) {
+    contentDiv.classList.add('sidedrawer-content');
+  }
+  const h3Element = contentDiv.querySelector('h3');
+  if (h3Element) {
+    const buttonEl =  button({ class: 'sidedrawer-button' },
+        h3Element.textContent, 
+        domEl('calcite-icon', {icon : 'plus', scale: 's', 'aria-hidden': 'true'}));
         contentDiv.replaceChild(buttonEl, h3Element);
     }
-
     const sidedrawerContent = document.querySelector('.sidedrawer-content');
     const buttonEl = document.querySelector('.sidedrawer-button');
     const contentFrame = div({ class: 'sidedrawer-contentframe' });
