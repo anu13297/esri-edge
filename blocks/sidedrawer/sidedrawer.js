@@ -14,9 +14,10 @@ export default function decorate(block) {
   const h3Element = contentDiv.querySelector('h3');
   if (h3Element) {
     const buttonEl =  button({ class: 'sidedrawer-button' },
-        h3Element.textContent, 
-        domEl('calcite-icon', {icon : 'plus', scale: 's', 'aria-hidden': 'true'}));
-        contentDiv.replaceChild(buttonEl, h3Element);
+      h3Element.textContent,
+      domEl('calcite-icon', { icon: 'plus', scale: 's', 'aria-hidden': 'true' })
+    );
+    contentDiv.replaceChild(buttonEl, h3Element);
     }
     const sidedrawerContent = document.querySelector('.sidedrawer-content');
     const buttonEl = document.querySelector('.sidedrawer-button');
