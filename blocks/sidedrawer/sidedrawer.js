@@ -14,9 +14,9 @@ export default function decorate(block) {
   const h3Element = contentDiv.querySelector('h3');
   if (h3Element) {
     const buttonEl = button(
-        { class: 'sidedrawer-button' },
-        h3Element.textContent,
-        domEl('calcite-icon', { icon: 'plus', scale: 's', 'aria-hidden': 'true' })
+      { class: 'sidedrawer-button' },
+      h3Element.textContent,
+      domEl('calcite-icon', { icon: 'plus', scale: 's', 'aria-hidden': 'true' },)
     );
     contentDiv.replaceChild(buttonEl, h3Element);
   }
@@ -25,15 +25,12 @@ export default function decorate(block) {
   const contentFrame = div({ class: 'sidedrawer-contentframe' });
   contentFrame.classList.add('calcite-mode-dark');
   sidedrawerContent.appendChild(contentFrame);
-  
   [...sidedrawerContent.querySelectorAll(':not(.sidedrawer-button, calcite-icon, .sidedrawer-contentframe)')].forEach((el) => {
     contentFrame.append(el);
   });
-  
   sidedrawerContent.setAttribute('aria-expanded', false);
   buttonEl.addEventListener('click', function() {
     const isExpanded = sidedrawerContent.getAttribute('aria-expanded') === 'true';
     sidedrawerContent.setAttribute('aria-expanded', !isExpanded);
   });
-
 }
