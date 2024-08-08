@@ -62,7 +62,7 @@ html[dir="rtl"] .sidedrawer-button {
     background-color: var(--calcite-ui-foreground-1);
 }
 
-@media (min-width: 1024px) {
+@media (width >= 1024px) {
     .sidedrawer {
         display: block;
         position: fixed;
