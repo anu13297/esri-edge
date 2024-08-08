@@ -16,7 +16,7 @@ export default function decorate(block) {
     const buttonEl = button(
       { class: 'sidedrawer-button' },
       h3Element.textContent,
-      domEl('calcite-icon', { icon: 'plus', scale: 's', 'aria-hidden': 'true' },)
+      domEl('calcite-icon', { icon: 'plus', scale: 's', 'aria-hidden': 'true' } ),
     );
     contentDiv.replaceChild(buttonEl, h3Element);
   }
@@ -29,7 +29,7 @@ export default function decorate(block) {
     contentFrame.append(el);
   });
   sidedrawerContent.setAttribute('aria-expanded', false);
-  buttonEl.addEventListener('click', function() {
+  buttonEl.addEventListener('click', () => {
     const isExpanded = sidedrawerContent.getAttribute('aria-expanded') === 'true';
     sidedrawerContent.setAttribute('aria-expanded', !isExpanded);
   });
