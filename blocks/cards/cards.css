@@ -192,11 +192,7 @@
   &:is(:hover,:focus-within) {
     border: 1px solid var(--calcite-ui-brand);
   }
-
-  /* &:not(:has(a)):is(:hover,:focus-within) {
-    border: 1px solid var(--calcite-ui-border-1);
-  } */
-
+  
   .card-body-content {
     margin: 0;
     display: flex;
