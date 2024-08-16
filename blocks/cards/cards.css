@@ -121,12 +121,13 @@
   }
 }
 
-/* Cards Simple */
-.cards.simple li{
+/* Simple and Standard Cards */
+.cards:is(.simple, .standard) {
   position: relative;
   display: flex;
 }
 
+/* Cards Simple */
 .cards.simple .cards-card-body{
   background-color: var(--calcite-ui-foreground-1);
   display: flex;
@@ -136,7 +137,7 @@
   border: 1px solid var(--calcite-ui-border-1);
   transition: border-color 0.25s linear;
 
-  &:is(:focus-within, :hover){
+  &:is(:hover,:focus-within){
     border: 1px solid var(--calcite-ui-brand);
   }
 
@@ -188,11 +189,6 @@
 }
 
 /* Cards Standard */
-.cards.standard li {
-  position: relative;
-  display: flex;
-}
-
 .cards.standard .cards-card-body{
   background-color: var(--calcite-ui-foreground-1);
   display: flex;
