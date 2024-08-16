@@ -193,9 +193,9 @@
     border: 1px solid var(--calcite-ui-brand);
   }
 
-  &:not(:has(a)):is(:hover,:focus-within) {
+  /* &:not(:has(a)):is(:hover,:focus-within) {
     border: 1px solid var(--calcite-ui-border-1);
-  }
+  } */
 
   .card-body-content {
     margin: 0;
@@ -211,13 +211,13 @@
     color: var(--calcite-ui-text-1);
     font-size: var(--description-size);
 
+    &:has(> picture) {
+      position: relative;
+    }
+
     &:last-child {
       padding: 0;
       margin-block-end: var(--content-end-spacing);
-    }
-
-    &:has(> picture) {
-      position: relative;
     }
 
     &.overlay-text {
@@ -286,4 +286,8 @@
 .cards.simple .cards-card-body p:last-child {
   padding: 0;
   margin-block-end: var(--content-end-spacing);
+}
+
+.cards.standard .cards-card-body:not(:has(a)):is(:hover,:focus-within) {
+  border: 1px solid var(--calcite-ui-border-1);
 }
