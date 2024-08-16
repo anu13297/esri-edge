@@ -193,10 +193,6 @@
   display: flex;
 }
 
-.cards.standard li a {
-  text-decoration: none;
-}
-
 .cards.standard .cards-card-body{
   background-color: var(--calcite-ui-foreground-1);
   display: flex;
@@ -265,6 +261,7 @@
     transition: border-color 0.25s linear;
     line-height: 1.5;
     margin: 0;
+    text-decoration: none;
   }
 
   p.overlay-text {
