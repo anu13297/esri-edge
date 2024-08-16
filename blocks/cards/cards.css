@@ -137,10 +137,6 @@
   border: 1px solid var(--calcite-ui-border-1);
   transition: border-color 0.25s linear;
 
-  &:is(:hover,:focus-within){
-    border: 1px solid var(--calcite-ui-brand);
-  }
-
   .card-body-content{
     padding: var(--space-5);
     margin: 0;
@@ -151,11 +147,6 @@
 
   p{
     margin: 0;
-
-    &:last-child {
-      padding: 0;
-      margin-block-end: var(--content-end-spacing);
-    }
   }
 
   h3{
@@ -286,4 +277,13 @@
       padding-block-end: var(--space-4);
     }
   }
+}
+
+.cards.simple .cards-card-body:is(:hover,:focus-within){
+  border: 1px solid var(--calcite-ui-brand);
+}
+
+.cards.simple .cards-card-body p:last-child {
+  padding: 0;
+  margin-block-end: var(--content-end-spacing);
 }
