@@ -136,6 +136,10 @@
   border: 1px solid var(--calcite-ui-border-1);
   transition: border-color 0.25s linear;
 
+  &:is(:focus-within, :hover){
+    border: 1px solid var(--calcite-ui-brand);
+  }
+
   .card-body-content{
     padding: var(--space-5);
     margin: 0;
@@ -176,10 +180,6 @@
     block-size: 44px;
     inline-size: 44px;
     margin-block-end: var(--content-spacing);
-  }
-
-  &:is(:focus-within, :hover){
-    border: 1px solid var(--calcite-ui-brand);
   }
 }
 
@@ -282,7 +282,7 @@
     margin: 0;
     text-decoration: none;
   }
-  
+
   picture {
     position: relative;
 
