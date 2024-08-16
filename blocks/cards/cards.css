@@ -177,10 +177,10 @@
     inline-size: 44px;
     margin-block-end: var(--content-spacing);
   }
-}
 
-.cards.simple .cards-card-body:is(:focus-within, :hover){
-  border: 1px solid var(--calcite-ui-brand);
+  &:is(:focus-within, :hover){
+    border: 1px solid var(--calcite-ui-brand);
+  }
 }
 
 .cards.simple a:is(:hover, :focus, :active) {
@@ -228,6 +228,25 @@
       padding: 0;
       margin-block-end: var(--content-end-spacing);
     }
+
+    &:has(> picture) {
+      position: relative;
+    }
+
+    &.overlay-text {
+      padding: var(--space-2) var(--space-5);
+      width: 100%;
+      letter-spacing: .2rem;
+      background-color: var(--esri-ui-opacity85-inverse);
+      margin-block-end: 0;
+      font-weight: var(--calcite-font-weight-bold);
+      text-transform: uppercase;
+      color: var(--calcite-ui-text-2);
+      font-size: var(--category-size);
+      position: absolute;
+      box-sizing: border-box;
+      bottom: 21px;
+    }
   }
 
   h3,h4,p:last-child {
@@ -263,31 +282,12 @@
     margin: 0;
     text-decoration: none;
   }
-
-  p.overlay-text {
-    padding: var(--space-2) var(--space-5);
-    width: 100%;
-    letter-spacing: .2rem;
-    background-color: var(--esri-ui-opacity85-inverse);
-    margin-block-end: 0;
-    font-weight: var(--calcite-font-weight-bold);
-    text-transform: uppercase;
-    color: var(--calcite-ui-text-2);
-    font-size: var(--category-size);
-    position: absolute;
-    box-sizing: border-box;
-    bottom: 21px;
-  }
-
+  
   picture {
     position: relative;
 
     img {
       padding-block-end: var(--space-4);
     }
-  }
-
-  p:has(> picture) {
-    position: relative;
   }
 }
