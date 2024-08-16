@@ -36,16 +36,16 @@ export default function decorate(block) {
     } else {
       div.append(cardBodyContent);
     }
-    div.querySelectorAll('p').forEach((p) => {if (p.textContent == '') p.remove();});
+    div.querySelectorAll('p').forEach((p) => { if (p.textContent === '') p.remove(); });
     [...div.querySelectorAll('.cards-card-body > :not(.card-body-content, a)')].forEach((el) => {
       cardBodyContent.append(el);
-      if (el.tagName === 'P' && el.children.length == 0 && el.parentNode.firstElementChild === el) {
+      if (el.tagName === 'P' && el.children.length === 0 && el.parentNode.firstElementChild === el) {
         el.classList.add('overlay-text');
-      }      
+      }
     });
     const pictureEl = div.querySelector('picture').closest('p');
     const overlayTextEl = div.querySelector('.overlay-text');
-    if(overlayTextEl) pictureEl.append(overlayTextEl);
+    if (overlayTextEl) pictureEl.append(overlayTextEl);
   };
 
   /* change to ul, li */
