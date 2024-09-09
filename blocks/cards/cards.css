@@ -191,7 +191,7 @@
   word-wrap: break-word;
   transition: border-color 0.25s linear;
   border: 1px solid var(--calcite-ui-border-1);
-  
+
   .card-body-content {
     margin: 0;
     display: flex;
@@ -279,10 +279,6 @@
   }
 }
 
-.cards.simple .cards-card-body:is(:hover,:focus-within){
-  border: 1px solid var(--calcite-ui-brand);
-}
-
 .cards.simple .cards-card-body p:last-child {
   padding: 0;
   margin-block-end: var(--content-end-spacing);
@@ -298,6 +294,10 @@
   p:last-child {
     padding: 0 var(--space-5) var(--space-8) var(--space-5);
   }
+}
+
+.cards.simple .cards-card-body:is(:hover,:focus-within){
+  border: 1px solid var(--calcite-ui-brand);
 }
 
 .cards.standard .cards-card-body:is(:hover,:focus-within) {
