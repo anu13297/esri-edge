@@ -177,14 +177,6 @@
   }
 }
 
-.cards.simple .cards-card-body:is(:focus-within, :hover){
-  border: 1px solid var(--calcite-ui-brand);
-}
-
-.cards.simple a:is(:hover, :focus, :active) {
-  border-inline-start: 3px solid var(--calcite-ui-brand);
-}
-
 /* Cards Standard */
 .cards.standard li{
   position: relative;
@@ -299,6 +291,10 @@
 .cards.simple .cards-card-body p:last-child {
   padding: 0;
   margin-block-end: var(--content-end-spacing);
+}
+
+.cards.simple a:is(:hover, :focus, :active) {
+  border-inline-start: 3px solid var(--calcite-ui-brand);
 }
 
 .cards.standard .cards-card-body:not(:has(a)):is(:hover,:focus-within) {
