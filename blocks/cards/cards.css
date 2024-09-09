@@ -61,15 +61,6 @@
       }
     }
   }
-
-  &.centered {
-    text-align: center;
-    .cards-card-body {
-      p:last-child {
-        padding: 0 var(--space-5) var(--space-8) var(--space-5);
-      }
-    }
-  }
 }
 
 @media (width >= 768px) {
@@ -313,3 +304,12 @@
 .cards.standard .cards-card-body:not(:has(a)):is(:hover,:focus-within) {
   border: 1px solid var(--calcite-ui-border-1);
 }
+
+.cards.centered { text-align: center; }
+
+.cards.centered .cards-card-body {
+  p:last-child {
+    padding: 0 var(--space-5) var(--space-8) var(--space-5);
+  }
+}
+
