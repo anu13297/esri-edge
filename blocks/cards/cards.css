@@ -12,10 +12,6 @@
   color: var(--calcite-ui-text-1);
   padding: 4rem 0;
 
-  &.centered {
-    text-align: center;
-  }
-
   .cards-card-body {
     margin: 8px;
   
@@ -67,6 +63,7 @@
   }
 
   &.centered {
+    text-align: center;
     .cards-card-body {
       p:last-child {
         padding: 0 var(--space-5) var(--space-8) var(--space-5);
