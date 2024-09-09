@@ -7,7 +7,6 @@ export default function decorate(block) {
 
   const processSimpleCard = (div) => {
     if (!block.classList.contains('simple')) return;
-    
     const anchorEl = div.querySelector('a');
     const cardBodyContent = domEl('div', { class: 'card-body-content' });
     if (anchorEl) {
@@ -35,23 +34,22 @@ export default function decorate(block) {
     }
     div.querySelectorAll('p').forEach((p) => { if (p.textContent === '') p.remove(); });
     [...div.querySelectorAll('.cards-card-body > :not(.card-body-content, a)')].forEach((el) => {
-     cardBodyContent.append(el);
+      cardBodyContent.append(el);
       if (el.tagName === 'P' && el.children.length === 0 && el.parentNode.firstElementChild === el) {
         el.classList.add('overlay-text');
       }
     });
     const pictureEl = div.querySelector('picture').closest('p');
     const overlayTextEl = div.querySelector('.overlay-text');
-    
     if (overlayTextEl) pictureEl.append(overlayTextEl);
     pictureEl.nextElementSibling.classList.add('card-body-title');
     const cardBodyTitle = div.querySelector('.card-body-title');
 
-    if(cardBodyContent.lastChild.classList == '') cardBodyContent.lastChild.classList.add('card-body-description');
+    if (cardBodyContent.lastChild.classList === '') cardBodyContent.lastChild.classList.add('card-body-description');
 
     if (cardBodyTitle.nextElementSibling && !cardBodyTitle.nextElementSibling.classList.contains('card-body-description')) {
-        cardBodyTitle.nextElementSibling.classList.add('card-body-subtitle');
-      }
+      cardBodyTitle.nextElementSibling.classList.add('card-body-subtitle');
+    }
   };
 
   /* change to ul, li */
