@@ -241,7 +241,6 @@
   }
 
   .card-body-title {
-    margin-block-end: var(--space-3);
     display: -webkit-box;
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
@@ -297,10 +296,6 @@
   border-inline-start: 3px solid var(--calcite-ui-brand);
 }
 
-.cards.standard .cards-card-body:not(:has(a)):is(:hover,:focus-within) {
-  border: 1px solid var(--calcite-ui-border-1);
-}
-
 .cards.centered { text-align: center; }
 
 .cards.centered .cards-card-body {
@@ -309,3 +304,6 @@
   }
 }
 
+.cards.standard .cards-card-body:not(:has(a)):is(:hover,:focus-within) {
+  border: 1px solid var(--calcite-ui-border-1);
+}
